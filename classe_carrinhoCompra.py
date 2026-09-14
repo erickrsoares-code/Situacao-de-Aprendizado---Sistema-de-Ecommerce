@@ -21,3 +21,4 @@
             self.valor_total = self.calcular_total()
         else:
             print("A compra já foi finalizada.")
+        
