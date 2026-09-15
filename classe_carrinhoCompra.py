@@ -1,3 +1,8 @@
+#================================================
+#AUTOR:Jorge
+#ARQUIVO:CLASSE_CARRINHO_COMPRA.PY
+#CODIGO FEITO COMPLETAMENTE POR Jorge, Sem ajuda de ninguem.
+#================================================
 class CarrinhoCompra:
     def __init__(self, valor_total=0, status_compra="aberto"):
         self.valor_total = valor_total
