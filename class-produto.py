@@ -10,7 +10,7 @@ class produto:
         self.nome = nome
         self.categoria = categoria
         self.preco_unitario = preco_unitario
-        self.quantidade_estoque = quantidade_estoque
+        self.quantidade_estoque = quantidade_estoque #
 
     def adiciona_estoque(self, quantidade): 
         self.quantidade_estoque += quantidade
