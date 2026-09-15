@@ -32,3 +32,8 @@ class Usuario:
             "email": self.email,
             "tipo_permissao": self.tipo_permissao
         }
+
+charles = Usuario(1, "Charles Battisti", "charles.battisti@example.com", "senha123", "cliente")
+charles.autenticar("charles.battisti@example.com", "senha123")
+charles.alterar_senha("jujuba01")
+print(charles.obter_dados_perfil())
