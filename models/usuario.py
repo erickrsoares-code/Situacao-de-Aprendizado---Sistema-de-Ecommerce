@@ -13,10 +13,10 @@ class Usuario:
         self.senha = senha
         self.tipo_permissao = tipo_permissao
 
-    def autenticar(self, email, senha):
+    def autenticar(self, nome, senha):
         # Programado por: Charles Battisti
         # Funcao Autentica o usuário com base no email e senha fornecidos.
-        return self.email == email and self.senha == senha
+        return self.nome == nome and self.senha == senha
 
     def alterar_senha(self, nova_senha):
         # Programado por: Charles Battisti
@@ -34,6 +34,6 @@ class Usuario:
         }
 
 charles = Usuario(1, "Charles Battisti", "charles.battisti@example.com", "senha123", "cliente")
-charles.autenticar("charles.battisti@example.com", "senha123")
+charles.autenticar("Charles Battisti", "senha123")
 charles.alterar_senha("jujuba01")
 print(charles.obter_dados_perfil())
