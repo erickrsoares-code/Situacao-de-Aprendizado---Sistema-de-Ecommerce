@@ -3,5 +3,5 @@ from models.usuario import Usuario
 from models.carrinho import CarrinhoCompras
 
 usuarios_bd = {
-
+    
 }
