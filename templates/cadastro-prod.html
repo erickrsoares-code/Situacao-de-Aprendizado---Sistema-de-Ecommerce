@@ -1,49 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque</title>
+    <title>Estoque - Supermercado Koch Style</title>
+    <style>
+        /* Fundo e fonte principal */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f3f8;
+            color: #1a2530;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Links de navegação com o Azul e Amarelo do Koch */
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #003366;
+            background-color: #ffcc00;
+            font-weight: bold;
+            margin: 0 5px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav a:hover {
+            background-color: #e6b800;
+            color: #002244;
+        }
+
+        /* Títulos */
+        h1 {
+            color: #003366;
+            margin-top: 20px;
+        }
+
+        /* Cartão do Formulário */
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 5px solid #d91a2a; /* Detalhe vermelho */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #003366;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #003366;
+        }
+
+        /* Botão de Cadastro (Vermelho em destaque) */
+        input[type="submit"],
+        input[type="button"] {
+            width: 100%;
+            background-color: #d91a2a;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #b51220;
+        }
+
+        /* Tabela Estilizada */
+        table {
+            width: 100%;
+            max-width: 700px;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #003366; /* Azul Escuro */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #fff8e1; /* Leve destaque amarelado ao passar o mouse */
+        }
+    </style>
 </head>
 <body>
 
-    <a href="/cadastro-prod">- Cadastrar Produto -</a>
-    <a href="/(form)">-nome()-</a>
-
+    <nav>
+        <a href="/cadastro-prod">Cadastrar Produto</a>
+        <a href="/(form)">Nome()</a>
+    </nav>
 
     <h1>Cadastro de Produtos</h1>
     <form action="/cadastro-prod" method="post">
         
         <label for="nome">Nome do Produto:</label>
-        <input type="text" id="nome" name="nome" required><br><br>
+        <input type="text" id="nome" name="nome" required>
     
         <label for="preco">Preço:</label>
-        <input type="number" id="preco" name="preco" step="0.01" required><br><br>
+        <input type="number" id="preco" name="preco" step="0.01" required>
 
         <label for="quantidade">Quantidade em Estoque:</label>
-        <input type="number" id="quantidade" name="quantidade" required><br><br>
+        <input type="number" id="quantidade" name="quantidade" required>
 
-        <input type="button" value="Cadastrar Produto">
+        <input type="submit" value="Cadastrar Produto">
     </form>
-    <h1>Estoque</h1>
-    <table border="1">
-        <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>Quantidade em Estoque</th>
-        </tr>
-        {% for produto in produtos %}
-        <tr>
-            <td>{{ produto.nome }}</td>
-            <td>{{ produto.descricao }}</td>
-            <td>{{ produto.preco }}</td>
-            <td>{{ produto.quantidade }}</td>
-        </tr>
-        {% endfor %}
 
+    <h1>Estoque</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Quantidade em Estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto.nome }}</td>
+                <td>R$ {{ produto.preco }}</td>
+                <td>{{ produto.quantidade }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 </body>
 </html>
-
-
