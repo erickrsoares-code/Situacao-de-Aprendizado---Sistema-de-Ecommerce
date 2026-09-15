@@ -1,4 +1,4 @@
- class CarrinhoCompra:
+class CarrinhoCompra:
     def __init__(self, valor_total=0, status_compra="aberto"):
         self.valor_total = valor_total
         self.status_compra = status_compra
