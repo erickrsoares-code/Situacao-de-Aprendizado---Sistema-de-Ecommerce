@@ -1,11 +1,12 @@
-#=======================================================================
-# ARQUIVO: CLASS USUARIO.py
+#==========================================
+# ARQUIVO: usuario.py
 # AUTOR: Charles Battisti
-#=======================================================================
+#==========================================
 
 class Usuario:
     def __init__(self, id_usuario, nome, email, senha, tipo_permissao):
         # Programado por: Charles Battisti
+        # Funcao base da class adciona novos usuarios.
         self.id_usuario = id_usuario
         self.nome = nome
         self.email = email
@@ -14,17 +15,17 @@ class Usuario:
 
     def autenticar(self, email, senha):
         # Programado por: Charles Battisti
-        """Autentica o usuário com base no email e senha fornecidos."""
+        # Funcao Autentica o usuário com base no email e senha fornecidos.
         return self.email == email and self.senha == senha
 
     def alterar_senha(self, nova_senha):
         # Programado por: Charles Battisti
-        """Altera a senha do usuário."""
+        # Funcao que altera a senha do usuário.
         self.senha = nova_senha
 
     def obter_dados_perfil(self):
         # Programado por: Charles Battisti
-        """Retorna os dados do perfil do usuário."""
+        # Funcao que retorna os dados do perfil do usuário.
         return {
             "id_usuario": self.id_usuario,
             "nome": self.nome,
