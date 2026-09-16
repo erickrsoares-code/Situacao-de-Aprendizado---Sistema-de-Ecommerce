@@ -16,8 +16,8 @@ class Usuario:
     def autenticar(self, nome, senha):
         # Programado por: Charles Battisti
         # Funcao Autentica o usuário com base no email e senha fornecidos.
-        login_valido = (self.nome == login_informado or self.email == login_informado)
-        return login_valido and self.senha == senha_informada
+        login_valido = (self.nome == nome or self.email == nome)
+        return login_valido and self.senha == senha
 
     def alterar_senha(self, nova_senha):
         # Programado por: Charles Battisti
