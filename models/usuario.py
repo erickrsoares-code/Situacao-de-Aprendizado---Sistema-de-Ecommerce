@@ -13,15 +13,17 @@ class Usuario:
         self.senha = senha
         self.tipo_permissao = tipo_permissao
 
-    def autenticar(self, email, senha):
+    def autenticar(self, nome, senha):
         # Programado por: Charles Battisti
         # Funcao Autentica o usuário com base no email e senha fornecidos.
-        return self.email == email and self.senha == senha
+        login_valido = (self.nome == login_informado or self.email == login_informado)
+        return login_valido and self.senha == senha_informada
 
     def alterar_senha(self, nova_senha):
         # Programado por: Charles Battisti
         # Funcao que altera a senha do usuário.
-        self.senha = nova_senha
+        if len(nova_senha) >= 4:
+            self.senha = nova_senha
 
     def obter_dados_perfil(self):
         # Programado por: Charles Battisti
@@ -32,8 +34,4 @@ class Usuario:
             "email": self.email,
             "tipo_permissao": self.tipo_permissao
         }
-
-charles = Usuario(1, "Charles Battisti", "charles.battisti@example.com", "senha123", "cliente")
-charles.autenticar("charles.battisti@example.com", "senha123")
-charles.alterar_senha("jujuba01")
-print(charles.obter_dados_perfil())
+# AUTOR: Charles Battisti
