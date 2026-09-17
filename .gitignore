@@ -1,0 +1,12 @@
+# Ambiente virtual do uv
+.venv/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+
+# Variaveis de ambiente
+.env
+
+# Cache do uv
+.uv_cache/

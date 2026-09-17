@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .menu-grid { display: flex; gap: 20px; justify-content: center; margin-top: 40px; }
+  .menu-card { background: white; padding: 40px; border-radius: 16px; border: 1px solid var(--border-color); width: 300px; text-align: center; text-decoration: none; color: var(--text-dark); transition: transform 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .menu-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+  .menu-icon { font-size: 48px; margin-bottom: 16px; }
+</style>
+
+<div style="text-align: center;">
+  <h2>Central do Sistema</h2>
+  <p style="color: var(--text-muted);">Escolha o módulo que deseja acessar:</p>
+  
+  <div class="menu-grid">
+    <a href="{{ url_for('loja') }}" class="menu-card">
+      <div class="menu-icon">🛍️</div>
+      <h3>Loja / PDV</h3>
+      <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Acesse a vitrine para realizar vendas.</p>
+    </a>
+    
+    <a href="{{ url_for('cadastro_prod') }}" class="menu-card">
+      <div class="menu-icon">📦</div>
+      <h3>Estoque & Cadastro</h3>
+      <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">Cadastre produtos e altere quantidades.</p>
+    </a>
+  </div>
+</div>
+{% endblock %}

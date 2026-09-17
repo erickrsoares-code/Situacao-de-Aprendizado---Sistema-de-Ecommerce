@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .auth-wrapper { display: flex; justify-content: center; align-items: center; min-height: 70vh; }
+  .auth-card { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 400px; border: 1px solid var(--border-color); text-align: center; }
+  .auth-title { font-size: 24px; color: var(--primary); margin-bottom: 8px; }
+  .auth-form { text-align: left; margin-top: 20px; }
+  .form-field { margin-bottom: 16px; }
+  .form-field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .form-field input { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; outline: none; }
+  .btn-auth-primary { width: 100%; background: var(--primary); color: white; padding: 14px; border: none; border-radius: 99px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+</style>
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div style="font-size: 40px; margin-bottom: 10px;">👋</div>
+    <h1 class="auth-title">Acesso Restrito</h1>
+    <p style="color: var(--text-muted); font-size: 14px;">Acesso administrativo do sistema.</p>
+    
+    <form action="{{ url_for('login') }}" method="POST" class="auth-form">
+      <div class="form-field">
+        <label>Usuário (Login)</label>
+        <input type="text" name="usuario" required placeholder="Ex: admin">
+      </div>
+      <div class="form-field">
+        <label>Senha</label>
+        <input type="password" name="senha" required placeholder="Ex: admin">
+      </div>
+      <button type="submit" class="btn-auth-primary">Entrar no TechMark</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

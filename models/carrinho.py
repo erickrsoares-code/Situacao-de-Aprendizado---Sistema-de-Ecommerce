@@ -1,47 +1,44 @@
-#==========================================
-# ARQUIVO: carrinho.py
+# ========================================================
+# ARQUIVO: models/carrinho.py
 # AUTOR: Jorge Henrique Mazera Soares
-#===================    =======================
+# ========================================================
+
 class CarrinhoCompras:
-    def __init__(self, valor_total=0, status_compra="aberto"):
-        # Programado por: Jorge Henrique Mazera Soares
-        # Funcao base cria um carrinho de compras.
+    # AUTOR: Jorge Henrique Mazera Soares
+    def __init__(self, valor_total=0.0, status_compra="Aberto"):
         self.valor_total = valor_total
         self.status_compra = status_compra
         self.itens = []
 
-    def adicionar_item(self, item):
-        # Programado por: Jorge Henrique Mazera Soares
-        # Funcao que adiciona itens ao carrinho.
+    # AUTOR: Jorge Henrique Mazera Soares
+    def adicionar_item(self, produto, quantidade):
         if produto.esta_disponivel(quantidade):
             self.itens.append({"produto": produto, "quantidade": quantidade})
             self.calcular_total()
             return True
         return False
 
-    def remover_item(self, item):
-        # Programado por: Jorge Henrique Mazera Soares
-        # Funcao que remove itens do carrinho.
-        if item in self.itens:
-            self.itens.remove(item)
+    # AUTOR: Jorge Henrique Mazera Soares
+    def remover_item(self, produto):
+        self.itens = [i for i in self.itens if i["produto"] != produto]
+        self.calcular_total()
 
-    def calcular_total(self):  
-        # Programado por: Jorge Henrique Mazera Soares
-        # Funcao que calcula o total do carrinho.
-        total = sum(item.preco_unitario for item in self.itens)
-        return total
+    # AUTOR: Jorge Henrique Mazera Soares
+    def calcular_total(self):
+        self.valor_total = sum(item["produto"].preco_unitario * item["quantidade"] for item in self.itens)
+        return self.valor_total
 
+    # AUTOR: Jorge Henrique Mazera Soares
     def finalizar_venda(self):
-        # Programado por: Jorge Henrique Mazera Soares
-        # Funcao que finaliza a compra.
         if not self.itens or self.status_compra != "Aberto":
             return False
+
         for item in self.itens:
             prod = item["produto"]
             qtd = item["quantidade"]
             if not prod.remover_estoque(qtd):
                 print(f"Erro: Estoque insuficiente para {prod.nome}.")
                 return False
+
         self.status_compra = "Finalizado"
-        return True     
-# AUTOR: Jorge Henrique Mazera Soares
+        return True
